@@ -11,4 +11,3 @@ jobs:
           STAGING_URL: ${{ github.event.deployment_status.target_url }}
         run: |
           echo STAGING_URL="$STAGING_URL"
-          exit 1
