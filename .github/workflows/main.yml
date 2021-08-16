@@ -1,4 +1,4 @@
-name: Preview CI
+name: Test Deployment
 
 on: [deployment_status]
 
@@ -6,9 +6,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Test Preview Environment
+      - name: Test Deployed Environment
         env:
           STAGING_URL: ${{ github.event.deployment_status.target_url }}
+          DEPLOYMENT_STATE: ${{ github.event.deployment_status.state }}
         run: |
           echo STAGING_URL="$STAGING_URL"
+          echo DEPLOYMENT_STATE="$DEPLOYMENT_STATE"
           curl -f "$STAGING_URL"
