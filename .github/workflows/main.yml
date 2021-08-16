@@ -5,6 +5,7 @@ on: [deployment_status]
 jobs:
   test:
     runs-on: ubuntu-latest
+    if: github.event.deployment_status.state == 'success'
     steps:
       - name: Test Deployed Environment
         env:
