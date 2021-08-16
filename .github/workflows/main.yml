@@ -11,3 +11,4 @@ jobs:
           STAGING_URL: ${{ github.event.deployment_status.target_url }}
         run: |
           echo STAGING_URL="$STAGING_URL"
+          curl -f "$STAGING_URL"
